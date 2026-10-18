@@ -1,0 +1,21 @@
+{
+  "name": "ihelpfriendship-site",
+  "version": "1.0.0",
+  "description": "Static humanitarian website for ihelpfriendship International Organization",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node check.mjs",
+    "qa": "node qa.mjs"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@fontsource/dm-sans": "^5.3.0",
+    "@fontsource/dm-serif-display": "^5.3.0",
+    "gsap": "3.15.0"
+  },
+  "devDependencies": {
+    "axe-core": "^4.14.0",
+    "playwright-core": "^1.64.1"
+  }
+}

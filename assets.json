@@ -1,0 +1,26 @@
+{
+  "brand": { "logo": "logo.jpg" },
+  "leadership": { "gunnar": "gunnar.jpg", "raymond": "raymond.jpg", "gilly": "gilly.jpg" },
+  "activity": {
+    "community": "community.jpg",
+    "gathering": "gathering.jpg",
+    "communityTalk": "community-talk.jpg",
+    "schoolGathering": "school-gathering.jpg",
+    "siteVisit": "site-visit.jpg",
+    "classroomSession": "classroom-session.jpg",
+    "teamVisit": "team-visit.jpg"
+  },
+  "notes": {
+    "logo": "Exact client-supplied artwork, unchanged.",
+    "portraits": "Assignments follow client screenshot captions. Confirm publication consent.",
+    "community": "Includes minors. Confirm appropriate publication consent before launch.",
+    "screenCapturePhotos": "Five photograph areas were extracted without phone interface from supplied chat screenshots. They are lower resolution than originals. Exact program associations are not independently verified; request originals and confirm publication consent before launch."
+  },
+  "screenshotSources": {
+    "community-talk.jpg": "848676829_1034470882985134_3437859757509171659_n.jpg",
+    "school-gathering.jpg": "848306440_1587758226165621_8934088341377947221_n.jpg",
+    "site-visit.jpg": "850154662_1424401176499000_7510032178662471527_n.jpg",
+    "classroom-session.jpg": "844277488_1112164425008958_1615208770657259397_n.jpg",
+    "team-visit.jpg": "845217001_1080846784752236_5875255900899629482_n.jpg"
+  }
+}
