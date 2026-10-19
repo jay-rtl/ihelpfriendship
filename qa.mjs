@@ -27,8 +27,15 @@ for (const width of [1440, 768, 390, 320]) {
       assert.equal(await page.locator('.menu-toggle').evaluate(button => getComputedStyle(button).borderTopWidth), '0px');
       await page.locator('.menu-toggle').click();
       assert.equal(await page.locator('.mobile-nav').isVisible(), true);
+      assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'), 'true');
+      assert.match(await page.locator('.menu-toggle span').first().evaluate(bar => getComputedStyle(bar).transform), /matrix\(/);
+      await page.locator('.menu-toggle').click();
+      assert.equal(await page.locator('.mobile-nav').isVisible(), false);
+      assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'), 'false');
+      await page.locator('.menu-toggle').click();
       await page.keyboard.press('Escape');
       assert.equal(await page.locator('.mobile-nav').isVisible(), false);
+      assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'), 'false');
       for (const target of ['/', '/about/', '/our-work/', '/support/', '/projects/']) {
         await page.locator('.menu-toggle').click();
         await page.locator(`.mobile-nav a[href="${target}"]`).click();

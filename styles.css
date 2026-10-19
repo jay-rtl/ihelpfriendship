@@ -28,6 +28,9 @@
 :root{--serif:'DM Serif Display',Georgia,serif;--sans:'DM Sans',Arial,sans-serif;--space:clamp(4.5rem,7.5vw,7.5rem)}
 .site-header{position:sticky;top:0;z-index:50;box-shadow:0 7px 24px rgba(16,43,37,.05)}
 .menu-toggle{border:0!important;border-radius:0;min-width:48px;min-height:48px}
+.menu-toggle span{transition:transform .22s ease}
+.menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(4px) rotate(45deg)}
+.menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-4px) rotate(-45deg)}
 .hero-grid{grid-template-columns:minmax(0,50%) minmax(0,50%)}
 .hero-copy{min-width:0;padding-right:clamp(1rem,3vw,3rem)}
 .hero-copy h1{font-size:clamp(4.5rem,7vw,7.2rem);max-width:100%;overflow-wrap:normal}
