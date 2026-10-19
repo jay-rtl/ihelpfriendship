@@ -31,6 +31,14 @@
 .menu-toggle span{transition:transform .22s ease}
 .menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(4px) rotate(45deg)}
 .menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+.video-gallery{border-top:1px solid var(--line)}
+.video-gallery h2{font-size:clamp(3rem,6vw,6rem);margin-bottom:3rem}
+.video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}
+.video-grid figure{min-width:0;margin:0}
+.video-grid video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:var(--deep)}
+.video-grid figcaption{display:flex;gap:1.2rem;align-items:baseline;border-top:1px solid var(--line);margin-top:1rem;padding-top:1rem;font-size:.95rem}
+.video-grid figcaption span{flex:none;color:var(--green);font-size:.7rem;font-weight:700;letter-spacing:.12em}
+@media(max-width:800px){.video-grid{grid-template-columns:minmax(0,1fr);gap:3rem}.video-gallery h2{margin-bottom:2rem}}
 .hero-grid{grid-template-columns:minmax(0,50%) minmax(0,50%)}
 .hero-copy{min-width:0;padding-right:clamp(1rem,3vw,3rem)}
 .hero-copy h1{font-size:clamp(4.5rem,7vw,7.2rem);max-width:100%;overflow-wrap:normal}

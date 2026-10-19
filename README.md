@@ -23,6 +23,6 @@ The GitHub Actions workflow builds and publishes the site to `https://jay-rtl.gi
 
 ## Content and assets
 
-`assets.json` maps the exact supplied logo, leadership portraits, two original activity photos, and five photograph areas extracted from the supplied messaging screenshots. The phone interface is excluded from those crops. Keep the original screenshots outside the public `dist/` directory. The screenshot-derived images have limited resolution; request original files when available. `videos.json` is ready for confirmed video entries with `src`, `type`, `poster`, and `caption`; it is empty while no video file is supplied.
+`assets.json` maps the exact supplied logo, leadership portraits, two original activity photos, and five photograph areas extracted from the supplied messaging screenshots. The phone interface is excluded from those crops. Keep the original screenshots outside the public `dist/` directory. The screenshot-derived images have limited resolution; request original files when available. `videos.json` lists two client-supplied videos shown after the photo gallery, with frame posters and neutral captions. Neither video has a supplied transcript or separate captions file.
 
 Before public release, confirm publication consent for leadership photos and all photos containing children, the portrait labels, the current donation details, the approximate student count, the exact production URL, and any required privacy/legal text. Confirm the activity associated with each screenshot-derived photo before applying a specific program label.

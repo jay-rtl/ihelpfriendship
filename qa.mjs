@@ -45,6 +45,19 @@ for (const width of [1440, 768, 390, 320]) {
     }
     if (route === '/projects/' && width === 390) {
       assert.equal(await page.locator('[data-gallery]').count(), 7);
+      assert.equal(await page.locator('.video-grid video').count(), 2);
+      for (const [index, video] of (await page.locator('.video-grid video').all()).entries()) {
+        await video.evaluate(element => new Promise((resolve, reject) => {
+          if (element.readyState >= 1) return resolve();
+          element.addEventListener('loadedmetadata', resolve, { once: true });
+          element.addEventListener('error', reject, { once: true });
+          element.load();
+        }));
+        assert.ok(await video.evaluate(element => element.duration > 0 && element.videoWidth > 0));
+        await video.evaluate(async element => { element.muted = true; await element.play(); });
+        await page.waitForFunction(index => document.querySelectorAll('.video-grid video')[index].currentTime > 0, index);
+        await video.evaluate(element => element.pause());
+      }
       await page.locator('[data-gallery="0"]').click();
       assert.equal(await page.locator('.lightbox').isVisible(), true);
       await page.keyboard.press('ArrowRight');

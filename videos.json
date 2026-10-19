@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "src": "../assets/field-video-01.mp4",
+    "type": "video/mp4",
+    "poster": "../assets/field-video-01-poster.jpg",
+    "caption": "Community footage shared by ihelpfriendship"
+  },
+  {
+    "src": "../assets/field-video-02.mp4",
+    "type": "video/mp4",
+    "poster": "../assets/field-video-02-poster.jpg",
+    "caption": "ihelpfriendship activity footage"
+  }
+]
