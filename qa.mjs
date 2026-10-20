@@ -44,8 +44,9 @@ for (const width of [1440, 768, 390, 320]) {
       }
     }
     if (route === '/projects/' && width === 390) {
-      assert.equal(await page.locator('[data-gallery]').count(), 40);
-      assert.equal(await page.locator('.gallery-category').count(), 5);
+      assert.equal(await page.locator('[data-gallery]').count(), 38);
+      assert.equal(await page.locator('.gallery-category').count(), 4);
+      assert.equal(await page.locator('#classroom, .gallery-jump a[href="#classroom"]').count(), 0);
       assert.equal(await page.locator('.video-grid video').count(), 5);
       for (const [index, video] of (await page.locator('.video-grid video').all()).entries()) {
         await video.evaluate(element => new Promise((resolve, reject) => {
@@ -65,9 +66,9 @@ for (const width of [1440, 768, 390, 320]) {
       assert.match(await page.locator('.lightbox figcaption').textContent(), /02/);
       await page.keyboard.press('Escape');
       assert.equal(await page.locator('.lightbox').isVisible(), false);
-      await page.locator('[data-gallery="39"]').click();
+      await page.locator('[data-gallery="37"]').click();
       assert.equal(await page.locator('.lightbox').isVisible(), true);
-      assert.match(await page.locator('.lightbox figcaption').textContent(), /In the classroom/);
+      assert.match(await page.locator('.lightbox figcaption').textContent(), /Seminar speakers/);
       await page.keyboard.press('Escape');
       await page.locator('.gallery-jump a[href="#seminars"]').click();
       assert.equal(new URL(page.url()).hash, '#seminars');

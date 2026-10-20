@@ -57,14 +57,5 @@
       ["seminar-06", "A speaker presenting a slide about suicide awareness", "Awareness presentation"],
       ["seminar-07", "Two people standing beside an awareness seminar banner", "Seminar speakers"]
     ]
-  },
-  {
-    "id": "classroom",
-    "title": "Classroom Moments",
-    "intro": "Additional photographs shared from a classroom visit.",
-    "photos": [
-      ["classroom-01", "A visitor and children together in a classroom", "Together in class"],
-      ["classroom-02", "Children seated at desks in a classroom", "In the classroom"]
-    ]
   }
 ]
