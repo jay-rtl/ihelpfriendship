@@ -10,5 +10,21 @@
     "type": "video/mp4",
     "poster": "../assets/field-video-02-poster.jpg",
     "caption": "ihelpfriendship activity footage"
+  },
+  {
+    "src": "../assets/field-video-03.mp4",
+    "type": "video/mp4",
+    "poster": "../assets/field-video-03-poster.jpg",
+    "width": 480,
+    "height": 368,
+    "caption": "ihelpfriendship emblem video"
+  },
+  {
+    "src": "../assets/field-video-04.mp4",
+    "type": "video/mp4",
+    "poster": "../assets/field-video-04-poster.jpg",
+    "width": 368,
+    "height": 368,
+    "caption": "A shared quote about caring for children"
   }
 ]
