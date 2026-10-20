@@ -26,5 +26,13 @@
     "width": 368,
     "height": 368,
     "caption": "A shared quote about caring for children"
+  },
+  {
+    "src": "../assets/field-video-05.mp4",
+    "type": "video/mp4",
+    "poster": "../assets/field-video-05-poster.jpg",
+    "width": 368,
+    "height": 368,
+    "caption": "A shared quote about helping one person"
   }
 ]
