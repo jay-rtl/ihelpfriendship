@@ -20,6 +20,8 @@ for (const [packageName, file] of [
 for (const file of ['gsap.min.js', 'ScrollTrigger.min.js']) fs.copyFileSync(path.join('node_modules/gsap/dist', file), path.join(out, file));
 fs.writeFileSync(path.join(out, 'robots.txt'), 'User-agent: *\nAllow: /\n');
 const videos = JSON.parse(fs.readFileSync('videos.json', 'utf8'));
+const galleryGroups = JSON.parse(fs.readFileSync('gallery.json', 'utf8'));
+const gallerySizes = JSON.parse(fs.readFileSync('gallery-sizes.json', 'utf8'));
 
 const nav = [['/', 'Home'], ['/about/', 'About Us'], ['/our-work/', 'What We Do'], ['/support/', 'Support Us'], ['/projects/', 'Projects & Gallery']];
 const arrow = '<span aria-hidden="true">↗</span>';
@@ -29,7 +31,8 @@ const dimensions = {
   community: [2040, 1530], gathering: [1080, 1073], gunnar: [1080, 1434],
   raymond: [1080, 1361], gilly: [951, 1553],
   'community-talk': [945, 1261], 'school-gathering': [945, 713],
-  'site-visit': [945, 1261], 'classroom-session': [945, 532], 'team-visit': [945, 1261]
+  'site-visit': [945, 1261], 'classroom-session': [945, 532], 'team-visit': [945, 1261],
+  ...gallerySizes
 };
 const img = (name, alt, eager = false) => `<img src="/assets/${name}.jpg" alt="${alt}" width="${dimensions[name][0]}" height="${dimensions[name][1]}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
 const cta = (title, copy = 'Your support helps the work continue in Bohol.') => `<section class="closing"><div class="shell closing-inner">${eyebrow('→', 'TAKE PART')}<h2>${title}</h2><p>${copy}</p>${link('/support/', 'Explore ways to support', 'button button-light')}</div></section>`;
@@ -51,6 +54,15 @@ const galleryPhotos = [
 const galleryItems = galleryPhotos.map(([name, alt, caption], index) =>
   `<button class="gallery-item${index === 0 ? ' gallery-feature' : ''}" type="button" data-gallery="${index}" aria-label="Open photo ${index + 1}: ${caption.toLowerCase()}">${img(name, alt)}<span>${String(index + 1).padStart(2, '0')} / ${caption}</span></button>`
 ).join('');
+let galleryIndex = galleryPhotos.length;
+const phoneScreenshots = new Set(['feeding-02','feeding-03','feeding-04','feeding-05','relief-03','scholarship-03','scholarship-04','scholarship-05','scholarship-06']);
+const categoryGalleries = galleryGroups.map((group, groupIndex) => {
+  const photos = group.photos.map(([name, alt, caption]) => {
+    const index = galleryIndex++;
+    return `<button class="category-photo${gallerySizes[name][1] > gallerySizes[name][0] ? ' category-photo-portrait' : ''}${phoneScreenshots.has(name) ? ' category-photo-screen' : ''}" type="button" data-gallery="${index}" aria-label="Open ${group.title} photo: ${caption}">${img(name, alt)}<span>${caption}</span></button>`;
+  }).join('');
+  return `<section class="gallery-category shell" id="${group.id}" aria-labelledby="${group.id}-title"><div class="category-heading"><div>${eyebrow(String(groupIndex + 1).padStart(2, '0'), 'FIELD NOTES')}<h2 id="${group.id}-title">${group.title}.</h2></div><p>${group.intro}</p></div><div class="category-grid">${photos}</div></section>`;
+}).join('');
 
 const pages = {
   home: { route: '/', title: 'Humanitarian Work in Bohol | ihelpfriendship', description: 'Explore ihelpfriendship’s humanitarian work in Bohol, Philippines, supported by friends in Norway and the United States.', content: `<main id="main">
@@ -74,10 +86,12 @@ const pages = {
   support: { route: '/support/', title: 'Support Our Work | ihelpfriendship', description: 'Find the client-provided PayPal email, Norwegian bank account, and Vipps number for supporting ihelpfriendship’s work in Bohol.', content: `<main id="main"><section class="support-hero"><div class="shell">${eyebrow('03', 'STAND WITH COMMUNITIES IN BOHOL')}<h1>How to<br><em>support us.</em></h1><p>Your generosity helps ihelpfriendship continue its humanitarian initiatives for communities in Bohol, Philippines.</p></div></section><section class="section shell donate"><div class="donate-intro">${eyebrow('01—03', 'WAYS TO GIVE')}<h2>Choose a way<br><em>to give.</em></h2><p>Please confirm the recipient before sending a payment.</p></div><div class="donate-list"><article><span>01 / PAYPAL</span><h3>Donate by PayPal</h3><p>You can support our work by donating to PayPal</p><div class="copy-line"><code>info@ihelpfriendship.net</code><button type="button" class="copy" data-copy="info@ihelpfriendship.net" aria-label="Copy PayPal email">Copy</button></div></article><article><span>02 / BANK TRANSFER</span><h3>Norwegian bank account</h3><p>If you have a Norwegian bank account, you can donate to Account</p><div class="copy-line"><code>4750 27 21344</code><button type="button" class="copy" data-copy="4750 27 21344" aria-label="Copy Norwegian account number">Copy</button></div></article><article><span>03 / VIPPS</span><h3>Give through Vipps</h3><p>Or you can donate through vipps number</p><div class="copy-line"><code>50 5260</code><button type="button" class="copy" data-copy="50 5260" aria-label="Copy Vipps number">Copy</button></div></article></div><p class="copy-status" role="status" aria-live="polite"></p></section><section class="contact-section"><div class="shell contact-grid"><div>${eyebrow('CONTACT', 'QUESTIONS ABOUT SUPPORT')}<h2>Start a<br><em>conversation.</em></h2></div><div><a href="mailto:1gunnarkristiansen@gmail.com">1gunnarkristiansen@gmail.com ↗</a><a href="tel:+4790915612">+47 909 15 612 ↗</a></div></div></section><section class="section shell thanks"><h2>Thanks for<br><em>your support.</em></h2><p>All donations will be used for our projects.</p></section></main>` },
   projects: {
     route: '/projects/', title: 'Projects & Gallery | ihelpfriendship',
-    description: 'View genuine organization photographs documenting ihelpfriendship’s people and community activity in Bohol.',
+    description: 'Explore ihelpfriendship photos of feeding, relief goods, scholarships, seminars, and classroom moments in Bohol.',
     content: `<main id="main"><section class="page-lead shell">${eyebrow('04', 'PROJECTS & GALLERY')}<div class="page-lead-grid"><h1>Our work<br><em>in action.</em></h1><p>Genuine photographs supplied by the organization, sharing moments of community and connection.</p></div></section>
-      <section class="gallery shell" aria-label="Photo gallery">${galleryItems}</section>
-      ${videos.length ? `<section class="video-gallery section shell" aria-labelledby="video-gallery-title">${eyebrow('02', 'VIDEO GALLERY')}<h2 id="video-gallery-title">Moments in motion.</h2><div class="video-grid">${videos.map((v, i)=>`<figure><video controls playsinline preload="metadata" poster="${v.poster}" width="1024" height="576" aria-label="Video ${i + 1}: ${v.caption}"><source src="${v.src}" type="${v.type}">Your browser does not support this video.</video><figcaption><span>${String(i + 1).padStart(2, '0')} / VIDEO</span>${v.caption}</figcaption></figure>`).join('')}</div></section>` : ''}
+      <section class="gallery shell" aria-label="Photo gallery highlights">${galleryItems}</section>
+      <nav class="gallery-jump shell" aria-label="Photo categories">${galleryGroups.map(group=>`<a href="#${group.id}">${group.title}<span aria-hidden="true">↗</span></a>`).join('')}</nav>
+      ${categoryGalleries}
+      ${videos.length ? `<section class="video-gallery section shell" aria-labelledby="video-gallery-title">${eyebrow('06', 'VIDEO GALLERY')}<h2 id="video-gallery-title">Moments in motion.</h2><div class="video-grid">${videos.map((v, i)=>`<figure><video controls playsinline preload="metadata" poster="${v.poster}" width="${v.width || 1024}" height="${v.height || 576}" aria-label="Video ${i + 1}: ${v.caption}"><source src="${v.src}" type="${v.type}">Your browser does not support this video.</video><figcaption><span>${String(i + 1).padStart(2, '0')} / VIDEO</span>${v.caption}</figcaption></figure>`).join('')}</div></section>` : ''}
       ${cta('Be part of<br><em>the difference.</em>')}</main>
       <div class="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden><button class="lightbox-close" type="button" aria-label="Close photo viewer">×</button><button class="lightbox-prev" type="button" aria-label="Previous photo">←</button><figure><img src="" alt=""><figcaption></figcaption></figure><button class="lightbox-next" type="button" aria-label="Next photo">→</button></div>`
   }

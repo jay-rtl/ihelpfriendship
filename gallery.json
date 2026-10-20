@@ -1,0 +1,70 @@
+[
+  {
+    "id": "feeding",
+    "title": "Feeding Program",
+    "intro": "Meals and moments shared during the organization's feeding activities.",
+    "photos": [
+      ["feeding-01", "A child standing with adults at an outdoor activity", "During the activity"],
+      ["feeding-02", "Children lined up together outdoors", "Children gathered"],
+      ["feeding-03", "Children and adults gathered outdoors", "Time together"],
+      ["feeding-04", "Children receiving food outdoors", "Community meal"],
+      ["feeding-05", "A child receiving food during a feeding activity", "Sharing food"]
+    ]
+  },
+  {
+    "id": "relief",
+    "title": "Relief Goods Program",
+    "intro": "Preparing and sharing food packages with people in the community.",
+    "photos": [
+      ["relief-01", "People gathered in a community area during relief distribution", "At the community"],
+      ["relief-02", "A volunteer handing a food package to a woman", "Food package handoff"],
+      ["relief-03", "A person holding a bag of food with a child", "At home"],
+      ["relief-04", "Volunteers packing bags of food indoors", "Preparing supplies"],
+      ["relief-05", "Rows of prepared bags of relief goods", "Packages ready"],
+      ["relief-06", "A volunteer handing a food package to a woman outside a home", "A home visit"],
+      ["relief-07", "A woman receiving bags of supplies outside her home", "Delivering supplies"],
+      ["relief-08", "An older woman seated with a bag of food", "A package received"],
+      ["relief-09", "A volunteer handing a food bag to a woman in a doorway", "Doorstep delivery"],
+      ["relief-10", "A woman and a volunteer holding a food package outdoors", "Community support"],
+      ["relief-11", "An older man with a volunteer during a home visit", "Visiting a neighbor"],
+      ["relief-12", "A volunteer visiting a man in his home", "A conversation at home"],
+      ["relief-13", "A volunteer seated with a man indoors", "Time to listen"]
+    ]
+  },
+  {
+    "id": "scholarship",
+    "title": "Scholarship Program",
+    "intro": "Photographs supplied for the organization's scholarship program.",
+    "photos": [
+      ["scholarship-01", "Collage of six scholarship program participants", "Participants, part one"],
+      ["scholarship-02", "Collage of six more scholarship program participants", "Participants, part two"],
+      ["scholarship-03", "A student holding an envelope at a covered school venue", "Student portrait"],
+      ["scholarship-04", "Group of students gathered at a covered school venue", "Students together"],
+      ["scholarship-05", "A student holding an envelope at a covered school venue", "Student portrait"],
+      ["scholarship-06", "A student holding an envelope at a covered school venue", "Student portrait"]
+    ]
+  },
+  {
+    "id": "seminars",
+    "title": "ihelpfriendship Seminars",
+    "intro": "Scenes from community education and awareness gatherings.",
+    "photos": [
+      ["seminar-01", "A facilitator speaking with participants around a seminar table", "Small group discussion"],
+      ["seminar-02", "Audience seated near a seminar banner on teenage pregnancy and suicide awareness", "Awareness seminar"],
+      ["seminar-03", "A speaker at a lectern during an awareness seminar", "At the lectern"],
+      ["seminar-04", "Audience and speakers at a community learning event", "Community learning"],
+      ["seminar-05", "Participants listening during a community learning event", "In conversation"],
+      ["seminar-06", "A speaker presenting a slide about suicide awareness", "Awareness presentation"],
+      ["seminar-07", "Two people standing beside an awareness seminar banner", "Seminar speakers"]
+    ]
+  },
+  {
+    "id": "classroom",
+    "title": "Classroom Moments",
+    "intro": "Additional photographs shared from a classroom visit.",
+    "photos": [
+      ["classroom-01", "A visitor and children together in a classroom", "Together in class"],
+      ["classroom-02", "Children seated at desks in a classroom", "In the classroom"]
+    ]
+  }
+]
