@@ -32,6 +32,7 @@ const dimensions = {
   raymond: [1080, 1361], gilly: [951, 1553],
   'community-talk': [945, 1261], 'school-gathering': [945, 713],
   'site-visit': [945, 1261], 'classroom-session': [945, 532], 'team-visit': [945, 1261],
+  'field-visit-home-01': [1448, 1086], 'field-visit-home-02': [944, 1520],
   ...gallerySizes
 };
 const img = (name, alt, eager = false) => `<img src="/assets/${name}.jpg" alt="${alt}" width="${dimensions[name][0]}" height="${dimensions[name][1]}" ${eager ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
@@ -49,7 +50,9 @@ const galleryPhotos = [
   ['site-visit', 'People reviewing notes during a visit', 'WORK IN THE FIELD'],
   ['gathering', 'People greeting one another at a gathering', 'A MOMENT OF CONNECTION'],
   ['classroom-session', 'Young people taking part in a classroom session', 'GROUP SESSION'],
-  ['team-visit', 'Two people standing together during a visit', 'A MOMENT FROM A VISIT']
+  ['team-visit', 'Two people standing together during a visit', 'A MOMENT FROM A VISIT'],
+  ['field-visit-home-01', 'A person standing outside a small wooden home', 'A FIELD VISIT'],
+  ['field-visit-home-02', 'A small wooden home among palm trees', 'A HOME AMONG PALMS']
 ];
 const galleryItems = galleryPhotos.map(([name, alt, caption], index) =>
   `<button class="gallery-item${index === 0 ? ' gallery-feature' : ''}" type="button" data-gallery="${index}" aria-label="Open photo ${index + 1}: ${caption.toLowerCase()}">${img(name, alt)}<span>${String(index + 1).padStart(2, '0')} / ${caption}</span></button>`

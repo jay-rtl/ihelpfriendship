@@ -44,7 +44,8 @@ for (const width of [1440, 768, 390, 320]) {
       }
     }
     if (route === '/projects/' && width === 390) {
-      assert.equal(await page.locator('[data-gallery]').count(), 38);
+      assert.equal(await page.locator('[data-gallery]').count(), 40);
+      assert.match(await page.locator('[data-gallery="8"] img').getAttribute('alt'), /wooden home/);
       assert.equal(await page.locator('.gallery-category').count(), 4);
       assert.equal(await page.locator('#classroom, .gallery-jump a[href="#classroom"]').count(), 0);
       assert.equal(await page.locator('.video-grid video').count(), 5);
@@ -66,7 +67,7 @@ for (const width of [1440, 768, 390, 320]) {
       assert.match(await page.locator('.lightbox figcaption').textContent(), /02/);
       await page.keyboard.press('Escape');
       assert.equal(await page.locator('.lightbox').isVisible(), false);
-      await page.locator('[data-gallery="37"]').click();
+      await page.locator('[data-gallery="39"]').click();
       assert.equal(await page.locator('.lightbox').isVisible(), true);
       assert.match(await page.locator('.lightbox figcaption').textContent(), /Seminar speakers/);
       await page.keyboard.press('Escape');
