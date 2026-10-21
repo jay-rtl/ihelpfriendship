@@ -72,6 +72,7 @@
 .gallery-item:nth-child(9) img{object-fit:contain;background:var(--sage)}
 .gallery-item:nth-child(3) img,.gallery-item:nth-child(4) img,.gallery-item:nth-child(7) img{object-position:center 30%}
 .gallery-item span{margin-top:.7rem;font-size:.68rem}
+.gallery-context{grid-column:1/-1;max-width:38rem;margin:0;border-left:3px solid var(--orange);padding:.15rem 0 .15rem 1rem;font-size:clamp(1rem,1.5vw,1.25rem);line-height:1.5}
 .gallery-item:hover img{transform:scale(1.015)}
 @media(max-width:800px){
   .hero-grid{grid-template-columns:minmax(0,1fr)}

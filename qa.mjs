@@ -46,6 +46,7 @@ for (const width of [1440, 768, 390, 320]) {
     if (route === '/projects/' && width === 390) {
       assert.equal(await page.locator('[data-gallery]').count(), 40);
       assert.match(await page.locator('[data-gallery="8"] img').getAttribute('alt'), /wooden home/);
+      assert.equal(await page.locator('.gallery-context').textContent(), '“Many poor people in the Philippines live in sheds like this.”');
       assert.equal(await page.locator('.gallery-category').count(), 4);
       assert.equal(await page.locator('#classroom, .gallery-jump a[href="#classroom"]').count(), 0);
       assert.equal(await page.locator('.video-grid video').count(), 5);

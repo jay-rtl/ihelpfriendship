@@ -91,7 +91,7 @@ const pages = {
     route: '/projects/', title: 'Projects & Gallery | ihelpfriendship',
     description: 'Explore ihelpfriendship photos of feeding, relief goods, scholarships, and seminars in Bohol.',
     content: `<main id="main"><section class="page-lead shell">${eyebrow('04', 'PROJECTS & GALLERY')}<div class="page-lead-grid"><h1>Our work<br><em>in action.</em></h1><p>Genuine photographs supplied by the organization, sharing moments of community and connection.</p></div></section>
-      <section class="gallery shell" aria-label="Photo gallery highlights">${galleryItems}</section>
+      <section class="gallery shell" aria-label="Photo gallery highlights">${galleryItems}<p class="gallery-context">&ldquo;Many poor people in the Philippines live in sheds like this.&rdquo;</p></section>
       <nav class="gallery-jump shell" aria-label="Photo categories">${galleryGroups.map(group=>`<a href="#${group.id}">${group.title}<span aria-hidden="true">↗</span></a>`).join('')}</nav>
       ${categoryGalleries}
       ${videos.length ? `<section class="video-gallery section shell" aria-labelledby="video-gallery-title">${eyebrow(String(galleryGroups.length + 1).padStart(2, '0'), 'VIDEO GALLERY')}<h2 id="video-gallery-title">Moments in motion.</h2><div class="video-grid">${videos.map((v, i)=>`<figure><video controls playsinline preload="metadata" poster="${v.poster}" width="${v.width || 1024}" height="${v.height || 576}" aria-label="Video ${i + 1}: ${v.caption}"><source src="${v.src}" type="${v.type}">Your browser does not support this video.</video><figcaption><span>${String(i + 1).padStart(2, '0')} / VIDEO</span>${v.caption}</figcaption></figure>`).join('')}</div></section>` : ''}
